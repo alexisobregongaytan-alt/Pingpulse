@@ -1,13 +1,13 @@
+
 {
   "name": "pingpulse",
   "version": "1.1.0",
-  "description": "PingPulse desktop connection dashboard",
+  "description": "PingPulse Gaming Network Optimizer",
   "main": "main.js",
   "author": "PingPulse",
-  "license": "UNLICENSED",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --win nsis"
+    "build": "electron-builder --win nsis --publish never"
   },
   "devDependencies": {
     "electron": "^41.0.0",
@@ -16,12 +16,12 @@
   "build": {
     "appId": "com.pingpulse.desktop",
     "productName": "PingPulse",
+    "asar": true,
     "directories": {
       "output": "dist"
     },
     "files": [
       "main.js",
-      "preload.js",
       "index.html",
       "package.json"
     ],
@@ -39,7 +39,8 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
+      "createStartMenuShortcut": true,
+      "shortcutName": "PingPulse"
     }
   }
 }
