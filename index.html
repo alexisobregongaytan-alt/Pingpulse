@@ -1,14 +1,229 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PingPulse</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PingPulse</title>
 <style>
-:root{--bg:#080d12;--panel:#101a22;--line:#20313b;--text:#edf7f8;--muted:#9aadb5;--mint:#62f0cb;--blue:#6baeff}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -15%,#12333a 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.5 Segoe UI,Arial,sans-serif}.layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh}.side{padding:25px 16px;border-right:1px solid var(--line);background:#080e13}.brand{font-weight:850;font-size:20px;display:flex;align-items:center;gap:10px;margin:0 0 42px}.logo{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--mint),#36a7d8);display:grid;place-items:center;color:#061216}.nav{display:block;padding:12px 14px;border-radius:10px;color:var(--muted);margin:5px 0}.nav.active,.nav:hover{background:#14272d;color:var(--mint)}.sidefoot{position:absolute;bottom:20px;color:#71858d;font-size:11px;max-width:180px}.main{padding:32px;max-width:1100px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;gap:20px;align-items:center}.eyebrow{color:var(--mint);font-size:11px;font-weight:800;letter-spacing:1.5px}h1{font-size:34px;margin:5px 0 2px;letter-spacing:-1px}.muted{color:var(--muted)}.pill{font-size:12px;border:1px solid var(--line);border-radius:99px;padding:7px 11px;color:var(--muted)}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:17px;margin-top:28px}.card{background:linear-gradient(145deg,#111e26,#0c141b);border:1px solid var(--line);border-radius:18px;padding:23px}.card h2{font-size:16px;margin:0 0 15px}.big{font-size:55px;letter-spacing:-2px;font-weight:800;line-height:1.2;margin:18px 0 4px}.big small{font-size:16px;letter-spacing:0;color:var(--muted)}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.label{color:var(--muted);font-size:12px}.field{display:flex;gap:8px;margin-top:15px}.field input{min-width:0;flex:1;background:#081116;color:var(--text);border:1px solid #2b424c;border-radius:10px;padding:12px;font-size:14px;outline:none}.field input:focus{border-color:var(--mint)}button{border:0;background:var(--mint);color:#061512;font-weight:800;border-radius:10px;padding:12px 16px;cursor:pointer}button:disabled{opacity:.55;cursor:wait}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.mini{background:#0a1319;border:1px solid #1b2b34;border-radius:12px;padding:12px}.mini b{display:block;font-size:20px}.mini span{font-size:10px;color:var(--muted)}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#070d11;border:1px solid var(--line);padding:13px;border-radius:10px;color:#c2d4d9;max-height:210px;overflow:auto;font-size:12px}.note{margin-top:17px;border:1px solid #35434a;background:#0d171d;padding:15px;border-radius:12px;color:var(--muted);font-size:12px}.page{display:none}.page.active{display:block}.featurelist{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.feature{padding:20px;border:1px solid var(--line);border-radius:15px;background:#0d151c}.feature h3{margin:0 0 6px}.feature p{color:var(--muted);margin:0}.good{color:var(--mint)}.error{color:#ff9e9e}@media(max-width:760px){.layout{grid-template-columns:1fr}.side{border-right:0;border-bottom:1px solid var(--line);padding:12px}.brand{margin:0 0 8px}.sidefoot{display:none}.navs{display:flex;gap:5px}.nav{padding:8px}.main{padding:20px}.grid{grid-template-columns:1fr}.featurelist{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
-</style></head><body><div class="layout"><aside class="side"><div class="brand"><span class="logo">P</span> PingPulse</div><div class="navs"><a class="nav active" href="#dashboard" data-page="dashboard">◉ &nbsp; Dashboard</a><a class="nav" href="#network" data-page="network">⌁ &nbsp; Network test</a><a class="nav" href="#about" data-page="about">ⓘ &nbsp; About</a></div><div class="sidefoot">Independent prototype<br>Not affiliated with ExitLag.</div></aside><main class="main"><div class="top"><div><div class="eyebrow">WINDOWS DESKTOP</div><h1 id="title">Dashboard</h1><div class="muted">Check your connection before the next match.</div></div><div class="pill">● Local ping test available</div></div>
-<section class="page active" id="dashboard"><div class="grid"><article class="card"><div class="row"><h2>Connection test</h2><span class="label">REAL PING COMMAND</span></div><div class="label">Average response time</div><div class="big" id="latency">— <small>ms</small></div><div id="summary" class="muted">Run a test to measure a destination from this PC.</div><div class="field"><input id="host" value="1.1.1.1" aria-label="Hostname or IP address"><button id="run">Run test ↗</button></div><div class="metrics"><div class="mini"><b id="replies">—</b><span>REPLIES</span></div><div class="mini"><b id="loss">—</b><span>PACKET LOSS</span></div><div class="mini"><b id="target">1.1.1.1</b><span>TARGET</span></div></div></article><article class="card"><h2>What this test tells you</h2><p class="muted">Ping measures round-trip response time to a host. It can help compare targets, but it does not equal your in-game ping unless you test the actual game server.</p><div class="note">Some hosts block ping requests. A failed test doesn't always mean your internet is down.</div></article></div><article class="card" style="margin-top:17px"><h2>Test output</h2><pre id="output">No test has run yet.</pre></article><div class="note"><b style="color:var(--text)">Honest status:</b> this build performs a real system ping test. It does not route or optimize game traffic. The app installer can be created through the included GitHub Actions workflow.</div></section>
-<section class="page" id="network"><div class="card"><h2>Network test</h2><p class="muted">Enter a hostname or IP address, then run four ping requests. Compare targets using the same connection for a more useful result.</p><div class="field"><input id="host2" value="1.1.1.1" aria-label="Network test hostname"><button id="run2">Run test ↗</button></div><pre id="output2">Ready to test.</pre></div><div class="note">Results depend on your network, the target, and whether that target responds to ICMP ping.</div></section>
-<section class="page" id="about"><div class="featurelist"><div class="feature"><h3>Real latency checks</h3><p>The desktop app runs the operating system's ping command and displays returned response times and packet loss when available.</p></div><div class="feature"><h3>Clean dashboard</h3><p>Designed around a simple dark interface with readable connection results.</p></div><div class="feature"><h3>Cloud build included</h3><p>The repository contains a GitHub Actions workflow to package a Windows installer.</p></div><div class="feature"><h3>Not a traffic tunnel</h3><p>Routing game traffic through optimized servers needs a separate backend and network infrastructure. This build doesn't do that yet.</p></div></div><div class="note">PingPulse is an independent prototype and is not affiliated with ExitLag or any game publisher.</div></section></main></div>
+:root{--bg:#080d12;--panel:#101a22;--line:#20313b;--text:#edf7f8;--muted:#9aadb5;--mint:#62f0cb;--blue:#6baeff;--red:#ff9696}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -15%,#12333a 0,transparent 42%),var(--bg);color:var(--text);font:14px/1.55 "Segoe UI",Arial,sans-serif}
+.layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh}.side{padding:24px 15px;border-right:1px solid var(--line);background:#080e13;position:sticky;top:0;height:100vh}
+.brand{font-weight:850;font-size:20px;display:flex;align-items:center;gap:10px;margin:0 0 35px}.logo{width:35px;height:35px;border-radius:11px;background:linear-gradient(135deg,var(--mint),#36a7d8);display:grid;place-items:center;color:#061216}
+.nav{display:block;padding:12px 13px;border-radius:10px;color:var(--muted);margin:5px 0;text-decoration:none}.nav.active,.nav:hover{background:#14272d;color:var(--mint)}.sidefoot{position:absolute;bottom:20px;color:#71858d;font-size:11px;max-width:180px}
+.main{padding:30px;max-width:1200px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;gap:20px;align-items:center}.eyebrow{color:var(--mint);font-size:11px;font-weight:800;letter-spacing:1.5px}h1{font-size:33px;margin:5px 0 2px;letter-spacing:-1px}h2{font-size:16px;margin:0 0 14px}.muted{color:var(--muted)}.pill{font-size:12px;border:1px solid var(--line);border-radius:99px;padding:7px 11px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:25px}.card{background:linear-gradient(145deg,#111e26,#0c141b);border:1px solid var(--line);border-radius:17px;padding:21px;margin-bottom:16px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.label{color:var(--muted);font-size:12px}.big{font-size:52px;letter-spacing:-2px;font-weight:800;line-height:1.2;margin:12px 0 4px}.big small{font-size:15px;letter-spacing:0;color:var(--muted)}
+.field{display:flex;gap:8px;margin-top:14px}.field input,.field select{min-width:0;flex:1;background:#081116;color:var(--text);border:1px solid #2b424c;border-radius:10px;padding:12px;font-size:14px;outline:none}.field input:focus,.field select:focus{border-color:var(--mint)}
+button{border:0;background:var(--mint);color:#061512;font-weight:800;border-radius:10px;padding:12px 15px;cursor:pointer}button.secondary{background:#182a32;color:var(--text);border:1px solid #2b424c}button:disabled{opacity:.55;cursor:wait}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:18px}.mini{background:#0a1319;border:1px solid #1b2b34;border-radius:11px;padding:12px;min-width:0}.mini b{display:block;font-size:20px;overflow-wrap:anywhere}.mini span{font-size:10px;color:var(--muted);letter-spacing:.5px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#070d11;border:1px solid var(--line);padding:13px;border-radius:10px;color:#c2d4d9;max-height:220px;overflow:auto;font-size:12px}.note{margin-top:14px;border:1px solid #35434a;background:#0d171d;padding:13px;border-radius:12px;color:var(--muted);font-size:12px}
+.page{display:none}.page.active{display:block}.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.tile{padding:17px;border:1px solid var(--line);border-radius:13px;background:#0d151c}.tile h3{margin:0 0 6px;font-size:14px}.tile p{margin:0;color:var(--muted)}.good{color:var(--mint)}.error{color:var(--red)}
+table{width:100%;border-collapse:collapse;margin-top:12px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:10px 8px;font-size:12px}th{color:var(--muted);font-weight:600}.historyrow{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+.bars{height:80px;display:flex;align-items:end;gap:4px;margin-top:18px;border-bottom:1px solid var(--line);padding:0 3px}.bar{flex:1;min-width:3px;background:linear-gradient(180deg,var(--mint),#257e75);border-radius:4px 4px 0 0;min-height:3px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.side{height:auto;position:static;border-right:0;border-bottom:1px solid var(--line);padding:12px}.brand{margin:0 0 8px}.navs{display:flex;gap:4px;flex-wrap:wrap}.nav{padding:8px}.sidefoot{display:none}.main{padding:18px}.grid{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.tiles{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="side">
+  <div class="brand"><span class="logo">P</span> PingPulse</div>
+  <div class="navs">
+    <a class="nav active" href="#dashboard" data-page="dashboard">◉ &nbsp; Dashboard</a>
+    <a class="nav" href="#analyzer" data-page="analyzer">⌁ &nbsp; Ping analyzer</a>
+    <a class="nav" href="#compare" data-page="compare">⇄ &nbsp; Compare targets</a>
+    <a class="nav" href="#tools" data-page="tools">⚙ &nbsp; Network tools</a>
+    <a class="nav" href="#history" data-page="history">▤ &nbsp; History</a>
+    <a class="nav" href="#about" data-page="about">ⓘ &nbsp; About</a>
+  </div>
+  <div class="sidefoot">Independent network utility<br>Results vary by target and connection.</div>
+</aside>
+<main class="main">
+  <div class="top"><div><div class="eyebrow">WINDOWS DESKTOP</div><h1 id="title">Dashboard</h1><div class="muted">Measure connection quality before your next match.</div></div><div class="pill">● Local network tools</div></div>
+
+  <section class="page active" id="dashboard">
+    <div class="grid">
+      <article class="card">
+        <div class="row"><h2>Quick connection test</h2><span class="label">REAL WINDOWS PING</span></div>
+        <div class="label">Average response time</div><div class="big" id="latency">— <small>ms</small></div>
+        <div id="summary" class="muted">Run a 30-packet test for a better picture of stability.</div>
+        <div class="field"><input id="host" value="1.1.1.1" aria-label="Hostname or IP address"><button id="run">Run test ↗</button></div>
+        <div class="metrics">
+          <div class="mini"><b id="replies">—</b><span>REPLIES</span></div>
+          <div class="mini"><b id="loss">—</b><span>PACKET LOSS</span></div>
+          <div class="mini"><b id="jitter">—</b><span>JITTER (MS)</span></div>
+          <div class="mini"><b id="target">1.1.1.1</b><span>TARGET</span></div>
+        </div>
+      </article>
+      <article class="card"><h2>How to read your results</h2>
+        <div class="tiles">
+          <div class="tile"><h3>Latency</h3><p>Lower is generally better. This is round-trip time to the selected host, not necessarily your game's server.</p></div>
+          <div class="tile"><h3>Jitter</h3><p>Average change between consecutive replies. Lower and steadier is generally better.</p></div>
+          <div class="tile"><h3>Packet loss</h3><p>Missing replies can indicate congestion or filtering. Some hosts treat ping differently.</p></div>
+          <div class="tile"><h3>Compare fairly</h3><p>Test targets on the same connection and repeat at similar times.</p></div>
+        </div>
+      </article>
+    </div>
+    <article class="card"><div class="row"><h2>Recent latency samples</h2><span class="label">FROM YOUR LAST TEST</span></div><div class="bars" id="chart"><span class="muted">Run a test to draw the chart.</span></div><div class="label" id="chartCaption">No samples yet.</div></article>
+    <article class="card"><h2>Raw ping output</h2><pre id="output">No test has run yet.</pre></article>
+  </section>
+
+  <section class="page" id="analyzer">
+    <article class="card"><h2>Advanced ping analyzer</h2><p class="muted">Run 10–50 packets and calculate average, minimum, maximum, jitter, and estimated packet loss.</p>
+      <div class="field"><input id="hostA" value="1.1.1.1" aria-label="Analyzer target"><select id="count"><option value="10">10 packets</option><option value="30" selected>30 packets</option><option value="50">50 packets</option></select><button id="runA">Analyze</button></div>
+      <div class="metrics">
+        <div class="mini"><b id="aAvg">—</b><span>AVERAGE MS</span></div><div class="mini"><b id="aMin">—</b><span>MINIMUM MS</span></div><div class="mini"><b id="aMax">—</b><span>MAXIMUM MS</span></div><div class="mini"><b id="aJit">—</b><span>JITTER MS</span></div>
+      </div>
+      <div class="metrics"><div class="mini"><b id="aReplies">—</b><span>REPLIES</span></div><div class="mini"><b id="aLoss">—</b><span>PACKET LOSS</span></div></div>
+      <div class="bars" id="chartA"><span class="muted">Your ping samples will appear here.</span></div><pre id="outputA">Ready to analyze.</pre>
+    </article>
+  </section>
+
+  <section class="page" id="compare">
+    <article class="card"><h2>Compare network targets</h2><p class="muted">This runs short ping tests against each destination. These are general network endpoints, not guaranteed Fortnite game servers.</p>
+      <div class="field"><button id="compareBtn">Compare targets</button><span class="label" id="compareStatus">Uses 8 packets per target.</span></div>
+      <div id="compareResults" class="muted" style="margin-top:15px">No comparison yet.</div>
+    </article>
+    <div class="note">Targets: Cloudflare (1.1.1.1), Google DNS (8.8.8.8), and Quad9 (9.9.9.9). A target can ignore ping requests, so a failed result doesn't automatically mean the service is down.</div>
+  </section>
+
+  <section class="page" id="tools">
+    <article class="card"><h2>Windows network tools</h2><p class="muted">DNS cleanup clears Windows' cached DNS lookups. It does not change your route or guarantee lower ping.</p>
+      <div class="row"><div><b>Flush DNS cache</b><div class="label">Runs the fixed Windows command: ipconfig /flushdns</div></div><button id="flushDns">Flush DNS</button></div>
+      <pre id="dnsOutput">Ready. Click Flush DNS to run the command.</pre>
+    </article>
+    <article class="card"><h2>Before changing settings</h2><div class="tiles">
+      <div class="tile"><h3>Try Ethernet</h3><p>A wired connection often reduces Wi-Fi interference and variability.</p></div>
+      <div class="tile"><h3>Pause heavy downloads</h3><p>Downloads and uploads can increase latency when your connection is busy.</p></div>
+      <div class="tile"><h3>Restart your router</h3><p>Useful for some temporary issues, but not a guaranteed ping fix.</p></div>
+      <div class="tile"><h3>Avoid random registry tweaks</h3><p>Unverified tweaks can break settings and rarely offer a reliable gaming advantage.</p></div>
+    </div></article>
+  </section>
+
+  <section class="page" id="history">
+    <article class="card"><div class="row"><h2>Saved test history</h2><button class="secondary" id="clearHistory">Clear history</button></div><p class="muted">History is stored locally in this app on this PC.</p><div id="historyList">No saved tests yet.</div></article>
+  </section>
+
+  <section class="page" id="about">
+    <article class="card"><h2>About PingPulse</h2><div class="tiles">
+      <div class="tile"><h3>Advanced measurements</h3><p>Repeated ping requests, latency range, jitter estimate, and packet-loss estimate.</p></div>
+      <div class="tile"><h3>Target comparison</h3><p>Compare a few well-known public endpoints from the same computer.</p></div>
+      <div class="tile"><h3>Windows DNS cleanup</h3><p>Runs a fixed DNS cache flush command. It doesn't change network routes.</p></div>
+      <div class="tile"><h3>No fake boost claims</h3><p>PingPulse diagnoses your connection; it does not tunnel game traffic or promise lower in-game ping.</p></div>
+    </div><div class="note">PingPulse is an independent prototype and is not affiliated with ExitLag or any game publisher.</div></article>
+  </section>
+</main>
+</div>
 <script>
-const $=id=>document.getElementById(id);
-document.querySelectorAll("[data-page]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();document.querySelectorAll("[data-page]").forEach(x=>x.classList.toggle("active",x===a));document.querySelectorAll(".page").forEach(x=>x.classList.toggle("active",x.id===a.dataset.page));$("title").textContent=a.textContent.trim().replace(/^◉|^⌁|^ⓘ/,"").trim();location.hash=a.dataset.page;}));
-async function run(hostId, buttonId, outputId, main=false){const host=$(hostId).value.trim(),btn=$(buttonId),out=$(outputId);btn.disabled=true;btn.textContent="Testing…";out.textContent="Running ping test…";try{const r=await window.pingPulse.ping(host);out.textContent=r.output||r.error||"No output returned.";if(main){$("target").textContent=host||"—";$("replies").textContent=r.replies??"—";$("loss").textContent=r.packetLossPercent==null?"N/A":r.packetLossPercent+"%";$("latency").innerHTML=(r.averageMs==null?"—":r.averageMs)+" <small>ms</small>";$("summary").textContent=r.ok?(r.replies+" replies received from "+host+"."):(r.error||"No replies received.");$("summary").className=r.ok?"good":"error";} }catch(e){out.textContent="Could not run the test: "+e.message;}finally{btn.disabled=false;btn.textContent="Run test ↗";}}
-$("run").addEventListener("click",()=>run("host","run","output",true));$("run2").addEventListener("click",()=>run("host2","run2","output2",false));$("host").addEventListener("keydown",e=>{if(e.key==="Enter")run("host","run","output",true)});$("host2").addEventListener("keydown",e=>{if(e.key==="Enter")run("host2","run2","output2",false)});
-</script></body></html>
+const $ = id => document.getElementById(id);
+let lastSamples = [];
+let history = [];
+try { history = JSON.parse(localStorage.getItem("pingpulse-history") || "[]"); } catch (_) { history = []; }
+
+document.querySelectorAll("[data-page]").forEach(a => a.addEventListener("click", e => {
+  e.preventDefault();
+  document.querySelectorAll("[data-page]").forEach(x => x.classList.toggle("active", x === a));
+  document.querySelectorAll(".page").forEach(x => x.classList.toggle("active", x.id === a.dataset.page));
+  $("title").textContent = a.textContent.trim().replace(/^[◉⌁⇄⚙▤ⓘ]\s*/, "").trim();
+  if (a.dataset.page === "history") renderHistory();
+  location.hash = a.dataset.page;
+}));
+
+function fmt(v) { return v == null ? "—" : String(v); }
+function drawBars(id, values) {
+  const el = $(id);
+  if (!values || !values.length) { el.innerHTML = '<span class="muted">No reply samples to chart.</span>'; return; }
+  const max = Math.max(...values, 1);
+  el.innerHTML = values.map(v => `<div class="bar" title="${v} ms" style="height:${Math.max(4, v / max * 100)}%"></div>`).join("");
+}
+function saveResult(r) {
+  history.unshift({ time: new Date().toLocaleString(), host: r.host, averageMs: r.averageMs, minMs: r.minMs, maxMs: r.maxMs, jitterMs: r.jitterMs, packetLossPercent: r.packetLossPercent, replies: r.replies, requested: r.requested });
+  history = history.slice(0, 50);
+  try { localStorage.setItem("pingpulse-history", JSON.stringify(history)); } catch (_) {}
+}
+function renderHistory() {
+  if (!history.length) { $("historyList").textContent = "No saved tests yet."; return; }
+  $("historyList").innerHTML = history.map(x => `<div class="historyrow"><div><b>${escapeHtml(x.host || "")}</b><div class="label">${escapeHtml(x.time || "")} · ${x.replies ?? 0}/${x.requested ?? "?"} replies</div></div><div style="text-align:right"><b>${x.averageMs == null ? "—" : x.averageMs + " ms"}</b><div class="label">Loss ${x.packetLossPercent ?? "?"}% · Jitter ${x.jitterMs ?? "—"} ms</div></div></div>`).join("");
+}
+function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c])); }
+
+async function doPing(host, count) {
+  if (!window.pingPulse || typeof window.pingPulse.ping !== "function") throw new Error("Ping API is missing. Rebuild and reinstall the latest PingPulse version.");
+  const result = await window.pingPulse.ping(host, count);
+  if (!result || typeof result !== "object") throw new Error("PingPulse received an invalid result.");
+  return result;
+}
+async function runDashboard() {
+  const btn = $("run"), host = $("host").value.trim();
+  btn.disabled = true; btn.textContent = "Testing…"; $("output").textContent = "Running 30 ping requests…";
+  try {
+    const r = await doPing(host, 30);
+    $("output").textContent = r.output || r.error || "No output returned.";
+    $("target").textContent = r.host || host;
+    $("replies").textContent = fmt(r.replies);
+    $("loss").textContent = r.packetLossPercent == null ? "—" : r.packetLossPercent + "%";
+    $("jitter").textContent = fmt(r.jitterMs);
+    $("latency").innerHTML = (r.averageMs == null ? "—" : r.averageMs) + ' <small>ms</small>';
+    $("summary").textContent = r.ok ? `${r.replies}/${r.requested} replies received from ${r.host}.` : (r.error || "No replies received.");
+    $("summary").className = r.ok ? "good" : "error";
+    lastSamples = [...(r.output.matchAll(/time[=<]\s*(\d+(?:\.\d+)?)\s*ms/gi))].map(m => Number(m[1]));
+    drawBars("chart", lastSamples);
+    $("chartCaption").textContent = `${lastSamples.length} response samples from ${r.host}.`;
+    saveResult(r);
+  } catch (e) { $("output").textContent = e.message; $("summary").textContent = e.message; $("summary").className = "error"; }
+  finally { btn.disabled = false; btn.textContent = "Run test ↗"; }
+}
+async function runAnalyzer() {
+  const btn = $("runA"), host = $("hostA").value.trim(), count = Number($("count").value);
+  btn.disabled = true; btn.textContent = "Analyzing…"; $("outputA").textContent = `Running ${count} ping requests…`;
+  try {
+    const r = await doPing(host, count);
+    $("outputA").textContent = r.output || r.error || "No output returned.";
+    $("aAvg").textContent = fmt(r.averageMs); $("aMin").textContent = fmt(r.minMs);
+    $("aMax").textContent = fmt(r.maxMs); $("aJit").textContent = fmt(r.jitterMs);
+    $("aReplies").textContent = `${r.replies}/${r.requested}`;
+    $("aLoss").textContent = r.packetLossPercent == null ? "—" : r.packetLossPercent + "%";
+    const samples = [...(r.output.matchAll(/time[=<]\s*(\d+(?:\.\d+)?)\s*ms/gi))].map(m => Number(m[1]));
+    drawBars("chartA", samples); saveResult(r);
+  } catch (e) { $("outputA").textContent = e.message; }
+  finally { btn.disabled = false; btn.textContent = "Analyze"; }
+}
+$("run").addEventListener("click", runDashboard);
+$("host").addEventListener("keydown", e => { if (e.key === "Enter") runDashboard(); });
+$("runA").addEventListener("click", runAnalyzer);
+$("hostA").addEventListener("keydown", e => { if (e.key === "Enter") runAnalyzer(); });
+
+$("compareBtn").addEventListener("click", async () => {
+  const btn = $("compareBtn"), status = $("compareStatus"), out = $("compareResults");
+  btn.disabled = true; btn.textContent = "Comparing…";
+  const targets = [{ name: "Cloudflare", host: "1.1.1.1" }, { name: "Google DNS", host: "8.8.8.8" }, { name: "Quad9", host: "9.9.9.9" }];
+  out.textContent = "Testing targets one at a time…";
+  const results = [];
+  try {
+    for (const t of targets) {
+      status.textContent = `Testing ${t.name}…`;
+      try { const r = await doPing(t.host, 8); results.push({ ...t, r }); }
+      catch (e) { results.push({ ...t, error: e.message }); }
+    }
+    out.innerHTML = `<table><thead><tr><th>DESTINATION</th><th>AVERAGE</th><th>JITTER</th><th>LOSS</th><th>RESULT</th></tr></thead><tbody>${results.map(x => `<tr><td><b>${x.name}</b><div class="label">${x.host}</div></td><td>${x.r?.averageMs == null ? "—" : x.r.averageMs + " ms"}</td><td>${x.r?.jitterMs == null ? "—" : x.r.jitterMs + " ms"}</td><td>${x.r?.packetLossPercent == null ? "—" : x.r.packetLossPercent + "%"}</td><td class="${x.r?.ok ? "good" : "error"}">${x.r?.ok ? "Replies received" : "No replies"}</td></tr>`).join("")}</tbody></table>`;
+    results.forEach(x => { if (x.r) saveResult(x.r); });
+    status.textContent = "Comparison finished.";
+  } finally { btn.disabled = false; btn.textContent = "Compare targets"; }
+});
+
+$("flushDns").addEventListener("click", async () => {
+  const btn = $("flushDns"); btn.disabled = true; btn.textContent = "Running…"; $("dnsOutput").textContent = "Flushing Windows DNS cache…";
+  try {
+    if (!window.pingPulse || typeof window.pingPulse.flushDns !== "function") throw new Error("DNS tool is missing. Rebuild and reinstall PingPulse.");
+    const r = await window.pingPulse.flushDns();
+    $("dnsOutput").textContent = r.output || (r.ok ? "Completed." : "Command failed.");
+    $("dnsOutput").className = r.ok ? "good" : "error";
+  } catch (e) { $("dnsOutput").textContent = e.message; }
+  finally { btn.disabled = false; btn.textContent = "Flush DNS"; }
+});
+$("clearHistory").addEventListener("click", () => {
+  if (!confirm("Clear all locally saved PingPulse test history?")) return;
+  history = []; try { localStorage.removeItem("pingpulse-history"); } catch (_) {} renderHistory();
+});
+renderHistory();
+</script>
+</body>
+</html>
