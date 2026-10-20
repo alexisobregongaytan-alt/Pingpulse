@@ -3,27 +3,33 @@ name: Build PingPulse for Windows
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
-      - name: Download source
+      - name: Download repository code
         uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+          cache: npm
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build Windows installer
+      - name: Build Windows EXE
         run: npm run build
 
-      - name: Upload installer
+      - name: Upload Windows installer
         uses: actions/upload-artifact@v4
         with:
-          name: PingPulse-Windows-Installer
+          name: PingPulse-Windows
           path: dist/*.exe
+          if-no-files-found: error
